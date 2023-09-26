@@ -1,5 +1,3 @@
-import { Context } from "@netlify/edge-functions";
-
 export default async (request, context) => {
   const response = await context.next();
   const page = await response.text();
@@ -11,3 +9,5 @@ export default async (request, context) => {
 
   return new Response(updatedPage, response);
 };
+
+export const config = { path: "*" };
